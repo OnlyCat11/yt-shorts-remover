@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "yt-shorts-remover",
+  "version": "1.0",
+  "description": "유튜브 쇼츠 탭을 일반 비디오 탭으로 자동 전환합니다.",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "webNavigation",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}
