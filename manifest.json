@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "yt-shorts-remover",
   "version": "1.0",
-  "description": "유튜브 쇼츠 탭을 일반 비디오 탭으로 자동 전환합니다.",
+  "description": "Redirect YouTube Shorts to the standard video player automatically.",
   "permissions": [
     "declarativeNetRequest",
     "declarativeNetRequestWithHostAccess",
