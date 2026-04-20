@@ -14,12 +14,10 @@ const convertShortsToNormal = (details) => {
       if (videoId) {
         const targetUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
-        chrome.tabs.get(details.tabId, (tab) => {
-          if (chrome.runtime.lastError) return;
-
-          if (tab && tab.url.includes("/shorts/")) {
-            chrome.tabs.update(details.tabId, { url: targetUrl });
-          }
+        chrome.scripting.executeScript({
+          target: { tabId: details.tabId, frameIds: [0] },
+          func: (url) => { location.replace(url); },
+          args: [targetUrl]
         });
       }
     } catch (error) {
@@ -29,9 +27,5 @@ const convertShortsToNormal = (details) => {
 };
 
 chrome.webNavigation.onHistoryStateUpdated.addListener(convertShortsToNormal, {
-  url: [{ hostSuffix: "youtube.com", pathContains: "/shorts/" }]
-});
-
-chrome.webNavigation.onBeforeNavigate.addListener(convertShortsToNormal, {
   url: [{ hostSuffix: "youtube.com", pathContains: "/shorts/" }]
 });
