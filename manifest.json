@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "yt-shorts-remover",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Redirect YouTube Shorts to the standard video player automatically.",
   "permissions": [
     "declarativeNetRequest",
